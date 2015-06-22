@@ -28,4 +28,19 @@ describe "Index todo items" do
 		end	
 	end
 
+	it "displays error when the content is empty" do
+		visit_todo_list(todo_list)
+
+		click_link "New Todo Item"
+		fill_in "Content", with: ""
+		click_button "Save"
+
+		within "div.flash" do
+			expect(page).to have_content("Unable to add this new todo item")
+		end
+
+		expect(page).to have_content("Content can't be blank")
+		
+	end
+
 end
