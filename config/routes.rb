@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 
   # Using nested resource so that todo items relates to a specific todo list
   resources :todo_lists do
-    resources :todo_items
+    resources :todo_items do
+      # Add a new route to complete action
+      member do
+        patch :complete
+      end
+    end
   end
 
   root 'todo_lists#index'
