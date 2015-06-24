@@ -4,14 +4,6 @@ describe "Index todo items" do
 	# create a variable that can be used by test cases
 	let!(:todo_list){TodoList.create(title: "Groceries", description: "Milk and eggs")}
 
-	def visit_todo_list(list)
-		visit "/todo_lists"
-
-		within "#todo_list_#{list.id}" do
-			click_link "List to do items"
-		end
-	end
-
 	it "successfully creates a new todo item" do 
 		todo_list.todo_items.create(content: "Milk")
 		todo_list.todo_items.create(content: "Eggs")
