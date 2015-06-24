@@ -17,7 +17,7 @@ describe "Index todo items" do
 
 		visit_todo_list(todo_list)
 		
-		within "ul.todo_list" do
+		within "ul.todo_items" do
 			expect(page).to have_content("Milk")
 			expect(page).to have_content("Eggs")
 		end

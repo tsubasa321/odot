@@ -15,7 +15,7 @@ describe "Index todo items" do
 		click_button "Save"
 		expect(page).to have_content("Successfully added new todo item")
 
-		within "ul.todo_list" do
+		within "ul.todo_items" do
 			expect(page).to have_content("Orange")
 		end	
 	end
