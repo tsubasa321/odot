@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :users
   # Using nested resource so that todo items relates to a specific todo list
   resources :todo_lists do
     resources :todo_items do
