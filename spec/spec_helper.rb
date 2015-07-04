@@ -19,6 +19,9 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
 
+  # Pipe deprecated errors to the log file
+  config.deprecation_stream = 'log/rspec-deprecations.log'
+
   # Include module TodoListHelpers to clean up repeating code "visit_todo_list"
   config.include TodoListHelpers, type: :feature
   config.include RailsDomIdHelper, type: :feature

@@ -3,7 +3,8 @@ require "spec_helper"
 describe "Sign up new user" do
 
 	it "allows the user to sign up and create a new user in the database" do
-		expect(User.count).to eq(0)
+		user_count = User.count
+		expect(User.count).to eq(user_count)
 
 		visit "/"
 		expect(page).to have_content("Sign Up")
@@ -15,7 +16,7 @@ describe "Sign up new user" do
 		fill_in "Password", with: "123456"
 		fill_in "Password confirmation", with: "123456"
 		click_button "Sign Up"
-		expect(User.count).to eq(1)
+		expect(User.count).to eq(user_count+1)
 		expect(page).to have_content("User was successfully created")
 	end	
 end
